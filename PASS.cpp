@@ -1,16 +1,5 @@
-// pass_pipeline.cpp
-// PASS: Pipeline for Assets, Seeds & Synthesis
-// Reference implementation / integration skeleton for Star Engine.
-//
-// Objetivo: gestionar cook, validación, lessons (de NERVA), hotpatching (ASTRA),
-// versiones, pruebas automáticas, y la interacción con decode/renderer/runtime.
-// Diseñado para ser integrado con: NERVA, ASTRA, TESSERA, NTD, LUXEN, AURELIA, VSR, etc.
-//
 // NOTA: Este archivo es un esqueleto de referencia con implementaciones
 // de ejemplo y puntos TODO donde enlazar código real (IO, compresión, crypto).
-//
-// Autor: Equipo de Arquitectura - Proyecto Star Engine
-// Fecha: 2026
 
 #include <atomic>
 #include <chrono>
@@ -636,4 +625,5 @@ int main() {
 
     pass::log(pass::LogLevel::Info, "PASS demo exiting...");
     return 0;
+
 }
