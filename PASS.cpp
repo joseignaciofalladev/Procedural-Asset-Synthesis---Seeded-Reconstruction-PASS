@@ -20,9 +20,7 @@
 #include <iostream>
 #include <iomanip>
 
-// ---------------------------
 // Utilitarios pequeños
-// ---------------------------
 namespace pass {
 
 // Simple logging (replace with engine logger)
@@ -627,3 +625,4 @@ int main() {
     return 0;
 
 }
+
