@@ -88,9 +88,7 @@ private:
 
 } // namespace pass
 
-// ---------------------------
 // PASS domain types
-// ---------------------------
 namespace PASS {
 
 // Asset identifiers and versions
@@ -153,11 +151,8 @@ struct ExecResult {
     std::string message;
 };
 
-// ---------------------------
 // Interfaces that PASS expects to call into (must be implemented by the engine)
 // These are abstract and here we provide minimal mock implementations.
-// ---------------------------
-
 class ICooker {
 public:
     virtual ~ICooker() = default;
@@ -187,10 +182,7 @@ public:
     virtual void AckLesson(const std::string &lessonID, bool accepted, const std::string &note) = 0;
 };
 
-// ---------------------------
 // PASS core manager
-// ---------------------------
-
 class PassManager {
 public:
     PassManager(ICooker* cooker, IStreamer* streamer, IForensicsStore* forensics, INervaBridge* nerva)
@@ -515,10 +507,7 @@ private:
 
 } // namespace PASS
 
-// ---------------------------
 // Mock implementations for testing/demo
-// ---------------------------
-
 class MockCooker : public PASS::ICooker {
 public:
     ExecResult RecookAsset(const PASS::AssetID &id, const std::string &params, PASS::Blob &outBlob, PASS::AssetMeta &outMeta) override {
@@ -578,9 +567,7 @@ public:
     }
 };
 
-// ---------------------------
 // Demo main (simple test harness)
-// ---------------------------
 int main() {
     pass::log(pass::LogLevel::Info, "PASS demo starting...");
     MockCooker cooker;
@@ -625,4 +612,5 @@ int main() {
     return 0;
 
 }
+
 
