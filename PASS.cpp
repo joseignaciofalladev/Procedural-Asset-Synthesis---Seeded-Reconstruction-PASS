@@ -1,6 +1,3 @@
-// NOTA: Este archivo es un esqueleto de referencia con implementaciones
-// de ejemplo y puntos TODO donde enlazar código real (IO, compresión, crypto).
-
 #include <atomic>
 #include <chrono>
 #include <condition_variable>
@@ -85,12 +82,10 @@ private:
     std::mutex mx;
     std::condition_variable cv;
 };
-
-} // namespace pass
+}
 
 // PASS domain types
 namespace PASS {
-
 // Asset identifiers and versions
 using AssetID = std::string;   // e.g., "env/city/block_12/facade_v03"
 using Version = uint64_t;
@@ -252,10 +247,8 @@ private:
     IStreamer* streamer;
     IForensicsStore* forensics;
     INervaBridge* nerva;
-
     std::thread worker;
     std::atomic<bool> stopFlag;
-
     pass::TSQueue<Lesson> lessonQueue;
     pass::TSQueue<CorrectionPlan> planQueue; // correction plans to execute
 
@@ -263,7 +256,6 @@ private:
     std::mutex stagingMx;
     std::unordered_map<AssetID, PASS::Blob> stagingAssets;
     std::unordered_map<AssetID, AssetMeta> stagingMeta;
-
     std::mutex deltaMx;
     std::unordered_map<std::string, Blob> pendingDelta; // key: id#version
 
@@ -504,8 +496,7 @@ private:
         }
     }
 };
-
-} // namespace PASS
+}
 
 // Mock implementations for testing/demo
 class MockCooker : public PASS::ICooker {
@@ -604,13 +595,9 @@ int main() {
     ls2.evidenceHash = forensics.StoreTrace("frame=23456 blocky decode");
     ls2.timestamp = pass::nowISO();
     manager.SubmitLesson(ls2);
-
+    
     // Let it run
     std::this_thread::sleep_for(std::chrono::seconds(3));
-
     pass::log(pass::LogLevel::Info, "PASS demo exiting...");
     return 0;
-
 }
-
-
